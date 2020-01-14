@@ -1,15 +1,15 @@
 import { y } from "./classSchool";
 
-export class Tablecreation{
+export class TableFormat{
 //create cell <td>
 
-createColumn(data: any) {
+ private column(data: any) {
     return `<td>${data.teacher.id}</td>`
   }
   
   //create row <tr>
   
- createRow (data: any) {
+ private row (data: any) {
     let rowContent = '';
     for (const i of data) {
       rowContent += this.createColumn(i)
@@ -19,7 +19,7 @@ createColumn(data: any) {
   
   // create table <table>
   
-  createTable(data: any){
+ private table(data: any){
     let tableContent = '';
     for (const i of data) {
       tableContent += this.createRow(i);
@@ -27,7 +27,7 @@ createColumn(data: any) {
     return `<table border="2">${tableContent}</table>`;
   }
   
-  schooltable(){
+  generator(){
     let content = '';
     for (const i of y) {
       content += this.createTable(i);
@@ -49,5 +49,3 @@ createColumn(data: any) {
   }
 }
 
-export const tablecreation=new Tablecreation();
-  
