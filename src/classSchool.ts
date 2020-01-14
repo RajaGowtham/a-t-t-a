@@ -2,7 +2,6 @@ import { Classroom } from "./classClassRooms";
 import { Teacher } from "./classTeachers";
 import { a, teachersData } from "./sampleData";
 
-export let y: any[] = [];
 // School Class
 
 export class School {
@@ -42,33 +41,10 @@ export class School {
   
   // Teachers Shuffle
   
-    Shuffle() {
+    shuffle() {
       this.teachers = this.teachers.sort(() => Math.random() - 0.5);
     }
-
-    //divide classRoom day
-
-    daydiv(t: any) {
-    for (let i = 0; i < this.workingDays; i++) {
-      var rowfound = t.filter((teachers: any) => teachers.day == i + 1);
-        for(let j=0;j<8;j++){
-          t.shift();
-        }
-      t.push(rowfound);
-    }
-    y.push(t);
-  } 
-  
-  // divide classRooms
-  
-    clsdiv(data: any) {
-    for (var i = 0; i < a.length; i++) {
-      var clsfound = data.filter((teachers1: any) => teachers1.name == a[i].name);
-      this.daydiv(clsfound);
-    }
-  }
-  
-  
+ 
   // Assign Teacher to Class
   
     assign(x: any) {
