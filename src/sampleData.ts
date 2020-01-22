@@ -1,13 +1,15 @@
 
 export let teachersData = [
-  { id: "001", subjects: ["tamil", "english"], name: "sfyds" },
-  { id: "002", subjects: ["english", "math"] },
-  { id: "003", subjects: ["scie", "soci"] },
-  { id: "004", subjects: ["tamil", "soci"] },
-  { id: "005", subjects: ["english", "soci"] },
+  { id: "001", subjects: ["tamil", "social"], name: "sfyds" },
+  { id: "002", subjects: ["english", "science"] },
+  { id: "003", subjects: ["maths"] },
+  { id: "004", subjects: ["science", "english"] },
+  { id: "005", subjects: ["social", "english"] },
   { id: "006", subjects: ["tamil", "soci"] },
-  { id: "007", subjects: ["english", "socil"] },
-  { id: "008", subjects: ["english", "soci"] }
+  { id: "007", subjects: ["chemistry"] },
+  { id: "008", subjects: ["maths"] },
+  { id: "009", subjects: ["physics"] },
+  { id: "010", subjects: ["lab"] },
 ];
 
 export let a = [

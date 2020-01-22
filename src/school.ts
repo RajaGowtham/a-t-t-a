@@ -2,9 +2,6 @@ import { Classroom } from "./Classroom";
 import { Teacher } from "./Teacher";
 
 
-
-
-
 export class School {
 
   classRooms: Array<Classroom> = [];
@@ -32,10 +29,10 @@ export class School {
 
   // Add ClassRooms
 
-  addClassRoom(name: string) {
+  addClassRoom(name: string, subjects: Array<string>) {
     for (let i = 0; i < this.workingDays; i++) {
       for (let j = 0; j < this.hours; j++) {
-        const classRoom = new Classroom(name, i + 1, j + 1);
+        const classRoom = new Classroom(name, i + 1, j + 1, subjects);
         this.classRooms.push(classRoom);
       }
     }
@@ -47,16 +44,27 @@ export class School {
     this.teachers = this.teachers.sort(() => Math.random() - 0.5);
   }
 
+  validation() {
+    for (let j = 0; j < this.workingDays; j++) {
+      for (let k = 0; k < this.hours; k++) {
+        const cls = this.classRooms.filter(cla => cla.day == j + 1 && cla.hour == k + 1);
+        const tea1 = this.teachers.filter(tea => tea.day == j + 1 && tea.hour == k + 1);
+        for (let l of tea1) {
+          for (let m of cls) {
+            this.assign(l, m);
+          }
+        }
+      }
+    }
+  }
 
   // Assign Teacher to Class
 
-  assign() {
-    for (let j = 0; j < this.workingDays; j++) {
-      for (let k = 0; k < this.hours; k++) {
-        const cls = this.classRooms.filter(cla => cla.day === j + 1 && cla.hour === k + 1);
-        const teach = this.teachers.filter(tea => tea.day === j + 1 && tea.hour === k + 1);
-        for (let i = 0; i < 8; i++) {
-          cls[i].teacher = teach[i];
+  assign(l: Teacher, m: Classroom) {
+    for (let j of m.subjects) {
+      for (let k of l.subjects) {
+        if (j.includes(l.subjects[0])) {
+          m.teacher = l;
         }
       }
     }
@@ -66,11 +74,6 @@ export class School {
 
   start() {
     this.shuffle();
-    this.assign();
+    this.validation();
   }
 }
-
-
-
-
-

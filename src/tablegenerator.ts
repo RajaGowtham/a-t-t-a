@@ -6,7 +6,7 @@ export class Tablecreation {
     public workingDays: number,
     public classRooms: Array<object>
   ) { }
-  
+
   private daydiv(cls: any) {
     for (let i = 0; i < this.workingDays; i++) {
       var dayfound = cls.filter((clsday: any) => clsday.day == i + 1);
@@ -68,5 +68,3 @@ export class Tablecreation {
         `
   }
 }
-
-
